@@ -66,16 +66,6 @@ ATTENTION: There are packages in Hadoop that may be lower than Spark's version a
 > zstd-jni-1.4.9-1.jar
 > lz4-java-1.7.1.jar
 
-#### Download from my archive
-
-If you are using Spark 3.4.1(or other spark version prebuilt with hadoop 3.3.4), You can simply download the already organized tools from my archive
-
-```bash
-wget http://42.193.219.110:8080/hadoop-3.3.4-share-hadoop-tools-lib.tar.gz
-tar -zxvf hadoop-3.3.4-share-hadoop-tools-lib.tar.gz
-cp hadoop-3.3.4-tools-lib/* ${SPARK_HOME}/jars/
-```
-
 #### Official way
 
 1 Find the specific version of hadoop used by Spark
@@ -108,11 +98,8 @@ cp ${HADOOP_HOME}/share/hadoop/tools/lib/* ${SPARK_HOME}/jars/
 Spark will be downloaded automatically, if the deployment environment does not have network, please download it first and then use it.
 
 ```bash
-cd $SPARK_HOME
+cd $SPARK_HOME/jars
 wget https://repo1.maven.org/maven2/org/apache/spark/spark-connect_${SCALA_VERSION}/${SPARK_VERSION}/spark-connect_${SCALA_VERSION}-${SPARK_VERSION}.jar
-
-# or download from my archive, eg.
-wget http://42.193.219.110:8080/spark-connect_2.12-3.4.1.jar
 ```
 
 ## Build
@@ -148,7 +135,7 @@ Test with pyspark
 pyspark --remote "sc://localhost:15002"
 ```
 
-example code
+Code example
 
 ```python
 from datetime import datetime, date
