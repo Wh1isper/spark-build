@@ -16,13 +16,12 @@ Nothing, we use pypi to install pyspark
 
 ```bash
 cd pyspark-app-base
-
-# Build without hadoop tools
-./build.sh
-docker build -t wh1isper/pyspark-app-base -f pyspark-app-base.Dockerfile .
 # Build with hadoop tools (download hadoop tools from my own archive server, may only support newest)
 ./build-full.sh
-docker build -t wh1isper/pyspark-app-base-with-hadoop-tools -f pyspark-app-base-with-hadoop-tools.Dockerfile .
+
+# OR Build without hadoop tools
+docker build -t wh1isper/pyspark-app-base -f pyspark-app-base.Dockerfile .
+
 ```
 
 # Build for Spark on K8S
