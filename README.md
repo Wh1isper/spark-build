@@ -16,10 +16,10 @@ Nothing, we use pypi to install pyspark
 
 ```bash
 cd pyspark-app-base
-# Build with hadoop tools (download hadoop tools from my own archive server, may only support newest)
-./build-full.sh
+# (Optional)Build with jars, see below:"(Optional) Adding Hadoop tools to Spark(eg. s3a ...)"
+./download-jars.sh
 
-# OR Build without hadoop tools
+# Then build spark 3.4.1 with jars
 docker build -t wh1isper/pyspark-app-base -f pyspark-app-base.Dockerfile .
 
 ```
@@ -39,6 +39,9 @@ Current we build on Spark version 3.4.1
 ```bash
 export SPARK_VERSION=3.4.1
 wget https://dlcdn.apache.org/spark/spark-${SPARK_VERSION}/spark-${SPARK_VERSION}-bin-hadoop3.tgz
+# OR from my archive
+wget https://bigdata-archive.obs.cn-south-222.ai.pcl.cn/spark-${SPARK_VERSION}-bin-hadoop3.tgz
+
 ```
 
 ### Unpack Spark and configure:
@@ -66,7 +69,15 @@ ATTENTION: There are packages in Hadoop that may be lower than Spark's version a
 > zstd-jni-1.4.9-1.jar
 > lz4-java-1.7.1.jar
 
-#### Official way
+#### From my archive
+
+```bash
+wget https://bigdata-archive.obs.cn-south-222.ai.pcl.cn/hadoop-3.3.4-share-hadoop-tools-lib.tar.gz
+tar -zxvf hadoop-3.3.4-share-hadoop-tools-lib.tar.gz
+mv hadoop-3.3.4-tools-lib/* ${SPARK_HOME}/jars/
+```
+
+#### Official way to get hadoop tools
 
 1 Find the specific version of hadoop used by Spark
 
