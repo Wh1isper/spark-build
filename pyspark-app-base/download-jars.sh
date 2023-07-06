@@ -8,7 +8,7 @@ mkdir -p $JARS_DIR
 pushd $JARS_DIR
 if [ ! -f spark-connect_2.12-3.4.1.jar ]
 then
-    wget https://bigdata-archive.obs.cn-south-222.ai.pcl.cn/spark-connect_2.12-3.4.1.jar
+    wget http://42.193.219.110:8080/spark-connect_2.12-3.4.1.jar
 else
     echo "Spark-connect found, skip download"
 fi
@@ -16,7 +16,7 @@ fi
 
 if [ ! -f hadoop-3.3.4-share-hadoop-tools-lib.tar.gz ]
 then
-    wget https://bigdata-archive.obs.cn-south-222.ai.pcl.cn/hadoop-3.3.4-share-hadoop-tools-lib.tar.gz
+    wget http://42.193.219.110:8080/hadoop-3.3.4-share-hadoop-tools-lib.tar.gz
 else
     echo "Hadoop tools found, skip download"
 fi
