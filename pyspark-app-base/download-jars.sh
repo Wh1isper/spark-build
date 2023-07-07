@@ -2,7 +2,7 @@
 set +e
 set -x
 
-JARS_DIR = $PWD/jars
+JARS_DIR=$PWD/jars
 
 mkdir -p $JARS_DIR
 pushd $JARS_DIR

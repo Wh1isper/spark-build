@@ -18,7 +18,7 @@ Nothing, we use pypi to install pyspark
 cd pyspark-app-base
 # Prepare your jars in ./pyspark-app-base/jars, see below:"(Optional) Adding Hadoop tools to Spark(eg. s3a ...)"
 # Then build spark 3.4.1 with jars
-docker build -t wh1isper/pyspark-app-base -f pyspark-app-base.Dockerfile .
+docker build -t wh1isper/pyspark-app-base:3.4.1 -f pyspark-app-base.Dockerfile .
 
 ```
 
