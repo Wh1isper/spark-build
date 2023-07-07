@@ -1,5 +1,3 @@
-# WIP for [Epic: Overall upgrade](https://github.com/Wh1isper/pyspark-sampling-build/issues/1)
-
 # Build for PySpark App
 
 Current we build on Spark version: 3.4.1
