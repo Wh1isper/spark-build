@@ -35,9 +35,6 @@ Current we build on Spark version 3.4.1
 ```bash
 export SPARK_VERSION=3.4.1
 wget https://dlcdn.apache.org/spark/spark-${SPARK_VERSION}/spark-${SPARK_VERSION}-bin-hadoop3.tgz
-# OR from my archive
-wget https://bigdata-archive.obs.cn-south-222.ai.pcl.cn/spark-${SPARK_VERSION}-bin-hadoop3.tgz
-
 ```
 
 ### Unpack Spark and configure:
