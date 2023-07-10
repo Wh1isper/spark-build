@@ -120,7 +120,7 @@ Optional env: SPARK_VERSION
 
 ```bash
 pushd spark-connect-server
-./build
+./build.sh
 popd
 ```
 
@@ -157,6 +157,6 @@ df.show()
 
 ```bash
 pushd spark-executor
-./build
+./build.sh
 popd
 ```
