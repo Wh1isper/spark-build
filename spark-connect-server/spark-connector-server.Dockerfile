@@ -40,7 +40,7 @@ ARG spark_uid=$EXECUTOR_UID
 RUN set -ex && \
     apt-get update && \
     ln -s /lib /lib64 && \
-    apt install -y bash tini libc6 libpam-modules krb5-user libnss3 procps net-tools && \
+    apt install -y bash tini libc6 libpam-modules krb5-user libnss3 procps net-tools python3&& \
     mkdir -p /opt/spark && \
     mkdir -p /opt/spark/examples && \
     mkdir -p /opt/spark/work-dir && \
