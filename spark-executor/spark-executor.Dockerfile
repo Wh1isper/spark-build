@@ -69,6 +69,9 @@ RUN chown $EXECUTOR_UID:$EXECUTOR_GID /opt/spark/work-dir
 RUN chmod a+x /opt/decom.sh
 # Wh1isper: Config default log dir 
 RUN mkdir -p /opt/spark/logs && chmod 777 /opt/spark/logs
+# Wh1isper: Config python and pyspark
+RUN ln -sv /usr/bin/python3 /usr/local/bin/python3
+COPY python /opt/spark/python
 ENTRYPOINT [ "/opt/entrypoint.sh" ]
 
 # Specify the User that the actual main process will run as
