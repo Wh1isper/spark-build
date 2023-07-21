@@ -106,7 +106,7 @@ cd $SPARK_HOME/jars
 wget https://repo1.maven.org/maven2/org/apache/spark/spark-connect_${SCALA_VERSION}/${SPARK_VERSION}/spark-connect_${SCALA_VERSION}-${SPARK_VERSION}.jar
 ```
 
-## Build
+## Build Spark Executor/Connect Server
 
 ### Require
 
@@ -160,3 +160,5 @@ pushd spark-executor
 ./build.sh
 popd
 ```
+
+Note If you need to call python functions, you need the python executable to be in the same location (and have the same package installed)
