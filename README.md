@@ -14,7 +14,7 @@ Prepare your jars in ./pyspark-app-base/jars, see below:"(Optional) Adding Hadoo
 
 I prepared jars of hadoop tools(hadoop 3.3.4) for spark 3.4.x, Try `cd ./pyspark-app-base && ./download-jars.sh`
 
-## Build 
+## Build
 
 ```bash
 cd pyspark-app-base
@@ -166,3 +166,7 @@ popd
 ```
 
 Note If you need to call python functions, you need the python executable to be in the same location (and have the same package installed)
+
+# TIPS
+
+S3 secrets tokens(and others) need only be configured on the `Driver` or `Connect Server`, Configuration in `Connect client` take no effort.
