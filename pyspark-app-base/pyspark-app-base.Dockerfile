@@ -12,7 +12,8 @@ RUN addgroup --system --gid ${APPLICATION_GID} application && \
     adduser --system --gid ${APPLICATION_GID} --home /home/application --uid ${APPLICATION_UID} --disabled-password application
 
 USER application
-ENV SPARK_VERSION=3.4.1
+ARG SPARK_VERSION=3.4.1
+ENV SPARK_VERSION=${SPARK_VERSION}
 
 RUN python3 -m pip install --upgrade pip \
     && pip3 install "pyspark[pandas_on_spark,connect,sql]==${SPARK_VERSION}" plotly --no-cache-dir
@@ -25,4 +26,4 @@ RUN python3 install_jars.py && rm -rf /tmp/prepare/
 ENV SPARK_HOME=/home/application/.local/lib/python3.10/site-packages/pyspark
 WORKDIR /home/application
 
-# docker build -t wh1isper/pyspark-app-base:3.4.1 -f pyspark-app-base.Dockerfile .
+# SPARK_VERSION=3.4.1;docker build -t wh1isper/pyspark-app-base:${SPARK_VERSION} -f pyspark-app-base.Dockerfile --build-arg SPARK_VERSION=${SPARK_VERSION} .

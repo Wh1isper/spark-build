@@ -8,15 +8,19 @@ Python as 3.10.x
 
 ## Prepare
 
-Nothing, we use pypi to install pyspark
+We use pypi to install pyspark
 
-# Build
+Prepare your jars in ./pyspark-app-base/jars, see below:"(Optional) Adding Hadoop tools to Spark(eg. s3a ...)"
+
+I prepared jars of hadoop tools(hadoop 3.3.4) for spark 3.4.x, Try `cd ./pyspark-app-base && ./download-jars.sh`
+
+## Build 
 
 ```bash
 cd pyspark-app-base
 # Prepare your jars in ./pyspark-app-base/jars, see below:"(Optional) Adding Hadoop tools to Spark(eg. s3a ...)"
 # Then build spark 3.4.1 with jars
-docker build -t wh1isper/pyspark-app-base:3.4.1 -f pyspark-app-base.Dockerfile .
+SPARK_VERSION=3.4.1;docker build -t wh1isper/pyspark-app-base:${SPARK_VERSION} -f pyspark-app-base.Dockerfile --build-arg SPARK_VERSION=${SPARK_VERSION} .
 
 ```
 
