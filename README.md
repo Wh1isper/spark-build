@@ -4,7 +4,7 @@ Current we build on Spark version: 3.4.1
 
 Python as 3.10.x
 
-[Sparglim ](https://github.com/Wh1isper/sparglim)is a good tools for PySpark app and daemon Connect server
+[Sparglim ](https://github.com/Wh1isper/sparglim)is a good tools for PySpark app and daemon Connect Server
 
 > You can modify the build script and dockerfile to suit your Spark version and other needs
 
