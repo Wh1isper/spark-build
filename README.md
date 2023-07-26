@@ -71,7 +71,7 @@ ATTENTION: There are packages in Hadoop that may be lower than Spark's version a
 #### From my archive
 
 ```bash
-wget https://bigdata-archive.obs.cn-south-222.ai.pcl.cn/hadoop-3.3.4-share-hadoop-tools-lib.tar.gz
+wget http://42.193.219.110:8080/hadoop-3.3.4-share-hadoop-tools-lib.tar.gz
 tar -zxvf hadoop-3.3.4-share-hadoop-tools-lib.tar.gz
 mv hadoop-3.3.4-tools-lib/* ${SPARK_HOME}/jars/
 ```
@@ -172,7 +172,6 @@ Note If you need to call python functions, you need the python executable to be 
 # TIPS
 
 S3 secrets tokens(and others) need only be configured on the `Driver` or `Connect Server`, Configuration in `Connect client` take no effort.
-
 
 # Used BY
 
