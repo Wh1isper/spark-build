@@ -76,3 +76,5 @@ ENTRYPOINT [ "/opt/entrypoint.sh" ]
 
 # Specify the User that the actual main process will run as
 USER ${spark_uid}
+# Wh1isper:include user's local bin for pip install
+ENV PATH=/home/executor/.local/bin:$PATH
