@@ -30,8 +30,8 @@ jobs:
       shell: bash
       run: |
         export HADOOP_VERSION=${{ matrix.hadoop-version }}
-        wget https://downloads.apache.org/hadoop/common/hadoop-${HADOOP_VERSION}/hadoop-${HADOOP_VERSION}.tar.gz 
-        tar xvzf hadoop-${HADOOP_VERSION}.tar.gz 
+        wget https://downloads.apache.org/hadoop/common/hadoop-${HADOOP_VERSION}/hadoop-${HADOOP_VERSION}.tar.gz
+        tar xvzf hadoop-${HADOOP_VERSION}.tar.gz
         mkdir -p ./pyspark-app-base/jars
         cp hadoop-${HADOOP_VERSION}/share/hadoop/tools/lib/* ./pyspark-app-base/jars/
         ls ./pyspark-app-base/jars/

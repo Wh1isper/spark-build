@@ -2,7 +2,7 @@ FROM python:3.10.12-slim-bookworm
 LABEL maintainer="wh1isper <9573586@qq.com>"
 
 RUN  apt-get -y update && apt-get -y upgrade && apt-get install -y curl default-jre \
-    && rm -rf /var/lib/apt/lists/* &&  rm -rf /root/.cache && rm -rf /var/cache/apt/* 
+    && rm -rf /var/lib/apt/lists/* &&  rm -rf /root/.cache && rm -rf /var/cache/apt/*
 # SET timezone if needed
 RUN rm -rf /etc/localtime && ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 

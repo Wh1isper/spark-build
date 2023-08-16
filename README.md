@@ -47,11 +47,11 @@ wget https://dlcdn.apache.org/spark/spark-${SPARK_VERSION}/spark-${SPARK_VERSION
 
 ```bash
 # May Need sudo
-tar -zxvf spark-${SPARK_VERSION}-bin-hadoop3.tgz -C /opt 
+tar -zxvf spark-${SPARK_VERSION}-bin-hadoop3.tgz -C /opt
 mv /opt/spark-${SPARK_VERSION}-bin-hadoop3/ /opt/spark-${SPARK_VERSION}
 
 export SPARK_HOME=/opt/spark-${SPARK_VERSION}
-export PATH=${SPARK_HOME}/bin:${SPARK_HOME}/sbin:$PATH 
+export PATH=${SPARK_HOME}/bin:${SPARK_HOME}/sbin:$PATH
 ```
 
 ### Verified
@@ -91,8 +91,8 @@ ls $SPARK_HOME/jars | grep hadoop
 
 ```bash
 export HADOOP_VERSION=3.3.4
-wget https://downloads.apache.org/hadoop/common/hadoop-${HADOOP_VERSION}/hadoop-${HADOOP_VERSION}.tar.gz 
-tar xvzf hadoop-*.tar.gz 
+wget https://downloads.apache.org/hadoop/common/hadoop-${HADOOP_VERSION}/hadoop-${HADOOP_VERSION}.tar.gz
+tar xvzf hadoop-*.tar.gz
 mv hadoop-${HADOOP_VERSION} /opt/hadoop
 export HADOOP_HOME=/opt/hadoop
 ```
