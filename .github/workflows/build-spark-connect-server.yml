@@ -48,8 +48,6 @@ jobs:
         wget https://downloads.apache.org/hadoop/common/hadoop-${HADOOP_VERSION}/hadoop-${HADOOP_VERSION}.tar.gz
         tar xvzf hadoop-${HADOOP_VERSION}.tar.gz
         cp hadoop-${HADOOP_VERSION}/share/hadoop/tools/lib/* ./spark-connect-server/jars/
-        export SCALA_VERSION=${{ matrix.scala-version }}
-        wget https://repo1.maven.org/maven2/org/apache/spark/spark-connect_${SCALA_VERSION}/${SPARK_VERSION}/spark-connect_${SCALA_VERSION}-${SPARK_VERSION}.jar
     -
       name: Prepare spark-connect jar
       shell: bash
