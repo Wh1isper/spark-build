@@ -22,7 +22,7 @@ I prepared jars of hadoop tools(hadoop 3.3.4) for spark 3.4.x, Try `cd ./pyspark
 cd pyspark-app-base
 # Prepare your jars in ./pyspark-app-base/jars, see below:"(Optional) Adding Hadoop tools to Spark(eg. s3a ...)"
 # Then build spark 3.4.1 with jars
-SPARK_VERSION=3.4.1;docker build -t wh1isper/pyspark-app-base:${SPARK_VERSION} -f pyspark-app-base.Dockerfile --build-arg SPARK_VERSION=${SPARK_VERSION} .
+SPARK_VERSION=3.4.1;docker buildx build -t wh1isper/pyspark-app-base:${SPARK_VERSION} --platform linux/amd64,linux/arm64/v8 -f pyspark-app-base.Dockerfile --build-arg SPARK_VERSION=${SPARK_VERSION} --push .
 
 ```
 
