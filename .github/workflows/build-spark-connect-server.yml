@@ -1,0 +1,73 @@
+name: Build spark connect server
+
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    strategy:
+      fail-fast: false
+      matrix:
+        spark-version: ["3.4.1", "3.3.2", "3.2.4"]
+        include:
+          - spark-version: "3.4.1"
+            hadoop-version: "3.3.4"
+          - spark-version: "3.3.2"
+            hadoop-version: "3.3.2"
+          - spark-version: "3.2.4"
+            hadoop-version: "3.3.1"
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    -
+      name: Prepare spark
+      shell: bash
+      run: |
+        export SPARK_VERSION=${{ matrix.spark-version }}
+        
+        if [ "${{ matrix.spark-version }}" = "3.2.4" ]; then
+          wget https://dlcdn.apache.org/spark/spark-${SPARK_VERSION}/spark-${SPARK_VERSION}-bin-hadoop3.2.tgz
+          tar xvzf spark-${SPARK_VERSION}-bin-hadoop3.2.tgz
+          cp -r spark-${SPARK_VERSION}-bin-hadoop3.2/* ./spark-connect-server/
+        else
+          wget https://dlcdn.apache.org/spark/spark-${SPARK_VERSION}/spark-${SPARK_VERSION}-bin-hadoop3.tgz
+          tar xvzf spark-${SPARK_VERSION}-bin-hadoop3.tgz
+          cp -r spark-${SPARK_VERSION}-bin-hadoop3/* ./spark-connect-server/
+        fi
+    -
+      name: Prepare hadoop jars
+      shell: bash
+      run: |
+        export HADOOP_VERSION=${{ matrix.hadoop-version }}
+        wget https://downloads.apache.org/hadoop/common/hadoop-${HADOOP_VERSION}/hadoop-${HADOOP_VERSION}.tar.gz 
+        tar xvzf hadoop-${HADOOP_VERSION}.tar.gz 
+        cp hadoop-${HADOOP_VERSION}/share/hadoop/tools/lib/* ./spark-connect-server/jars/
+    -
+      name: Set up QEMU
+      uses: docker/setup-qemu-action@v2
+    -
+      name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v2
+    -
+      name: Login to DockerHub
+      uses: docker/login-action@v2
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    -
+      name: Build and push image
+      id: docker_build
+      uses: docker/build-push-action@v4
+      with:
+        platforms: linux/amd64,linux/arm64/v8
+        build-args: |
+          SPARK_VERSION = ${{ matrix.spark-version }}
+        context: ./spark-connect-server
+        file: ./spark-connect-server/spark-connector-server.Dockerfile
+        push: true
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/spark-connector-server:${{ matrix.spark-version }}

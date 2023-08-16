@@ -4,7 +4,7 @@ LABEL maintainer="wh1isper <9573586@qq.com>"
 RUN  apt-get -y update && apt-get -y upgrade && apt-get install -y curl default-jre \
     && rm -rf /var/lib/apt/lists/* &&  rm -rf /root/.cache && rm -rf /var/cache/apt/*
 # SET timezone if needed
-RUN rm -rf /etc/localtime && ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+# RUN rm -rf /etc/localtime && ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
 ARG APPLICATION_UID=9999
 ARG APPLICATION_GID=9999
