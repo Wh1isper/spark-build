@@ -56,6 +56,6 @@ jobs:
         build-args: |
           SPARK_VERSION = ${{ matrix.spark-version }}
         context: ./pyspark-app-base
-        file: ./pyspark-app-base.Dockerfile
+        file: ./pyspark-app-base/pyspark-app-base.Dockerfile
         push: true
         tags: ${{ secrets.DOCKERHUB_USERNAME }}/pyspark-app-base:${{ matrix.spark-version }}
