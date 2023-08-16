@@ -29,7 +29,7 @@ jobs:
       shell: bash
       run: |
         export SPARK_VERSION=${{ matrix.spark-version }}
-        
+
         if [ "${{ matrix.spark-version }}" = "3.2.4" ]; then
           wget https://dlcdn.apache.org/spark/spark-${SPARK_VERSION}/spark-${SPARK_VERSION}-bin-hadoop3.2.tgz
           tar xvzf spark-${SPARK_VERSION}-bin-hadoop3.2.tgz
@@ -44,8 +44,8 @@ jobs:
       shell: bash
       run: |
         export HADOOP_VERSION=${{ matrix.hadoop-version }}
-        wget https://downloads.apache.org/hadoop/common/hadoop-${HADOOP_VERSION}/hadoop-${HADOOP_VERSION}.tar.gz 
-        tar xvzf hadoop-${HADOOP_VERSION}.tar.gz 
+        wget https://downloads.apache.org/hadoop/common/hadoop-${HADOOP_VERSION}/hadoop-${HADOOP_VERSION}.tar.gz
+        tar xvzf hadoop-${HADOOP_VERSION}.tar.gz
         cp hadoop-${HADOOP_VERSION}/share/hadoop/tools/lib/* ./spark-executor/jars/
     -
       name: Set up QEMU
