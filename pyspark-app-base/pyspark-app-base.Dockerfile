@@ -26,4 +26,4 @@ RUN python3 install_jars.py && rm -rf /tmp/prepare/
 ENV SPARK_HOME=/home/application/.local/lib/python3.10/site-packages/pyspark
 WORKDIR /home/application
 
-# SPARK_VERSION=3.4.1;docker build -t wh1isper/pyspark-app-base:${SPARK_VERSION} -f pyspark-app-base.Dockerfile --build-arg SPARK_VERSION=${SPARK_VERSION} .
+# SPARK_VERSION=3.4.1;docker buildx build -t wh1isper/pyspark-app-base:${SPARK_VERSION} --platform linux/amd64,linux/arm64/v8 -f pyspark-app-base.Dockerfile --build-arg SPARK_VERSION=${SPARK_VERSION} .
