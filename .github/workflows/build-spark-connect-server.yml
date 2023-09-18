@@ -11,9 +11,11 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        spark-version: ["3.4.1"]
+        spark-version: ["3.5.0", "3.4.1"]
         scala-version: ["2.12"]
         include:
+          - spark-version: "3.5.0"
+            hadoop-version: "3.3.4"
           - spark-version: "3.4.1"
             hadoop-version: "3.3.4"
 
