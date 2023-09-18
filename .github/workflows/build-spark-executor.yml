@@ -68,7 +68,7 @@ jobs:
       with:
         platforms: linux/amd64,linux/arm64/v8
         build-args: |
-          SPARK_VERSION = ${{ matrix.spark-version }}
+          SPARK_VERSION=${{ matrix.spark-version }}
         context: ./spark-executor
         file: ./spark-executor/spark-executor.Dockerfile
         push: true

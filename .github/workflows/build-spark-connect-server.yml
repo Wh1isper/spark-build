@@ -73,7 +73,7 @@ jobs:
       with:
         platforms: linux/amd64,linux/arm64/v8
         build-args: |
-          SPARK_VERSION = ${{ matrix.spark-version }}
+          SPARK_VERSION=${{ matrix.spark-version }}
         context: ./spark-connect-server
         file: ./spark-connect-server/spark-connector-server.Dockerfile
         push: true
