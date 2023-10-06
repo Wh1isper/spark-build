@@ -6,6 +6,13 @@ Python as 3.10.x
 
 [Sparglim ](https://github.com/Wh1isper/sparglim)is a good tools for PySpark app and daemon Connect Server
 
+Avaliable on dockerhub:
+
+- For PySpark app: [wh1isper/pyspark-app-base](https://hub.docker.com/r/wh1isper/pyspark-app-base)
+- For Spark Connect Server: [wh1isper/spark-executor](https://hub.docker.com/r/wh1isper/spark-executor)
+- For Spark on k8s(Spark executor): [wh1isper/spark-connector-server](https://hub.docker.com/r/wh1isper/spark-connector-server)
+
+
 > You can modify the build script and dockerfile to suit your Spark version and other needs
 
 ## Prepare
