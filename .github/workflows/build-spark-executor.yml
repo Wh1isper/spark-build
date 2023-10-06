@@ -60,6 +60,7 @@ jobs:
           export SPARK_VERSION=${{ matrix.spark-version }}
           wget https://repo1.maven.org/maven2/org/apache/spark/spark-connect_${SCALA_VERSION}/${SPARK_VERSION}/spark-connect_${SCALA_VERSION}-${SPARK_VERSION}.jar
           cp spark-connect_${SCALA_VERSION}-${SPARK_VERSION}.jar ./spark-executor/jars/
+        fi
     -
       name: Set up QEMU
       uses: docker/setup-qemu-action@v2
