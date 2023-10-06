@@ -33,7 +33,7 @@ jobs:
         export SPARK_VERSION=${{ matrix.spark-version }}
 
         if [ "${{ matrix.spark-version }}" = "3.2.4" ]; then
-          wget https://dlcdn.apache.org/spark/spark-${SPARK_VERSION}/spark-${SPARK_VERSION}-bin-hadoop3.2.tgz
+          wget https://archive.apache.org/dist/spark/spark-${SPARK_VERSION}/spark-${SPARK_VERSION}-bin-hadoop3.2.tgz
           tar xvzf spark-${SPARK_VERSION}-bin-hadoop3.2.tgz
           cp -r spark-${SPARK_VERSION}-bin-hadoop3.2/* ./spark-executor/
         else
